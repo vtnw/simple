@@ -6,16 +6,17 @@
     <meta name="viewport" content="width =device-width, initial-scale=1.0">
     <title>Test</title>
   <script>
-		const input = document.getElementById('test');
-    input.addEventListener('input', updateValue);
-    function updateValue(e) {
-      alert(e.target.value);
-    }
+		const input = document.querySelector('input');
+const log = document.getElementById('values');
+
+input.addEventListener('input', updateValue);
+
+function updateValue(e) {
+  log.textContent = e.target.value;
+}
   </script>
 </head>
 <body>
-    <div style="width:100%;">
-        <input type="text" id="test" />
-    </div>
+    <input placeholder="Enter some text" name="name"/>
 </body>
 </html>
