@@ -23,7 +23,7 @@
 				location.href = 'https://tamil.oneindia.com';
 			} else if (query == "gsm arena") {
 				location.href = 'https://gsmarena.com';
-			} else if (query == "clear") {
+			} else if (query.endsWith("clear")) {
 				document.getElementById("tbSearch").value = "";
 			} else if (query.indexOf(" ") >= 0) {
 				location.href = "https://www." + query;
