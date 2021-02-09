@@ -7,7 +7,7 @@
     <title>Test</title>
 </head>
 <body>
-    <input placeholder="3" name="name" style="width:80%"/>
+    <input placeholder="5" name="name" style="width:80%"/>
 	<p id="values"></p>
 </body>
 	  <script>
@@ -19,8 +19,8 @@ input.addEventListener('input', updateValue);
 function updateValue(e) {
 	let text =  e.target.value.toLowerCase();
   log.textContent = text;
-	if (text.endsWith("go")) {
-		let query = text.replace("go");
+	if (text.endsWith("go") && text != "go") {
+		let query = text.replace("go", "");
 		if (query == "google") {
 		location.href = 'https://www.google.com';
 		} else {
