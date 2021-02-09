@@ -7,7 +7,7 @@
     <title>Test</title>
 </head>
 <body>
-	<div contenteditable="true" id="dvSearch" style="width:100%;text-align:center;">
+	<div contenteditable="true" id="dvSearch" style="width:100%;height:100%;text-align:center;">
 	</div>
 </body>
 <script>
@@ -15,7 +15,7 @@
 		document.getElementById("tbText").focus();
 	});
 	document.getElementById("dvSearch").addEventListener("input", function (event) {
-		let text =  event.target.value.toLowerCase();
+		let text =  event.target.innerText.toLowerCase();
 		if (text.endsWith("go") && text != "go") {
 			let query = text.replace("go", "").trim();
 			if (query == "google") {
