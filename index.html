@@ -11,6 +11,9 @@
 	</div>
 </body>
 <script>
+	document.addEventListener("click", function (event) {
+		document.getElementById("dvSearch").focus();
+	});
 	document.getElementById("dvSearch").addEventListener("input", function (event) {
 		let text =  event.target.innerText.toLowerCase();
 		if (text.endsWith("go") && text != "go") {
