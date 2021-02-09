@@ -6,8 +6,13 @@
     <meta name="viewport" content="width =device-width, initial-scale=1.0">
     <title>Test</title>
 </head>
-<body style="width:100%;height:100%;text-align:center;">
-	<div contenteditable="true" id="dvSearch" style="width:100%;height:100%;text-align:center;">
+	<style>
+		[contenteditable] {
+		    outline: 0px solid transparent;
+		}
+	</style>
+<body>
+	<div contenteditable="true" id="dvSearch" style="width:100%;height:100%;">
 	</div>
 </body>
 <script>
@@ -25,7 +30,7 @@
 			} else if (query == "gsm arena") {
 				location.href = 'https://gsmarena.com';
 			} else {
-				location.href = 'https://www.google.com/search?q=' + query;
+				location.href = query;
 			}
 		}
 	});
