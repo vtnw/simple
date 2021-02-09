@@ -18,9 +18,13 @@
 		if (text.endsWith("go") && text != "go") {
 			let query = text.replace("go", "");
 			if (query == "google") {
-			location.href = 'https://www.google.com';
+				location.href = 'https://www.google.com';
+			} else if (query == "one india tamil") {
+				location.href = 'https://tamil.oneindia.com';
+			} else if (query == "gsm arena") {
+				location.href = 'https://gsmarena.com';
 			} else {
-			location.href = 'https://www.google.com/search?q=' + query;
+				location.href = 'https://www.google.com/search?q=' + query;
 			}
 		}
 	});
