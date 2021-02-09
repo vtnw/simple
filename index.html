@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE =edge">
     <meta name="viewport" content="width =device-width, initial-scale=1.0">
-    <title>Search 3</title>
+    <title>Search 4</title>
 </head>
 <body>
 	<input type="text" id="tbSearch" placeholder="Search" style="width:98%;text-align:center;border:none;font-size:large;"/>
@@ -28,7 +28,7 @@
 			}
 		}
 		if (text.endsWith("search") && text != "search") {
-			location.href = 'https://www.google.com/search?q=' + query;
+			location.href = 'https://www.google.com/search?q=' + text.replace("search", "").trim();
 		}
 	});
   </script>
