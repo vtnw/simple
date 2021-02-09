@@ -10,6 +10,9 @@
     <input placeholder="Search" id="tbText" name="name" style="width:80%;border:none;"/>
 </body>
 <script>
+	document.addEventListener("click", function (event) {
+		document.getElementById("tbText").focus();
+	});
 	document.getElementById("tbText").addEventListener("input", function (event) {
 		let text =  event.target.value.toLowerCase();
 		if (text.endsWith("go") && text != "go") {
