@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE =edge">
     <meta name="viewport" content="width =device-width, initial-scale=1.0">
-    <title>Search 5</title>
+    <title>Search 7</title>
 </head>
 <body>
 	<input type="text" id="tbSearch" placeholder="Search" style="width:98%;text-align:center;border:none;font-size:large;outline:none;"/>
@@ -23,6 +23,8 @@
 				location.href = 'https://tamil.oneindia.com';
 			} else if (query == "gsm arena") {
 				location.href = 'https://gsmarena.com';
+			} else if (query == "clear") {
+				document.getElementById("tbSearch").value = "";
 			} else if (query.indexOf(" ") >= 0) {
 				location.href = "https://www." + query;
 			} else {
