@@ -4,15 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE =edge">
     <meta name="viewport" content="width =device-width, initial-scale=1.0">
-    <title>Search 2</title>
+    <title>Search 3</title>
 </head>
-	<style>
-		[contenteditable] {
-		    outline: 0px solid transparent;
-		}
-	</style>
 <body>
-	<input type="text" id="tbSearch" placeholder="Search" style="width:100%;text-align:center;"/>
+	<input type="text" id="tbSearch" placeholder="Search" style="width:98%;text-align:center;border:none;font-size:large;"/>
 </body>
 <script>
 	document.addEventListener("click", function (event) {
@@ -29,8 +24,11 @@
 			} else if (query == "gsm arena") {
 				location.href = 'https://gsmarena.com';
 			} else {
-				location.href = query;
+				location.href = "https://www." + query;
 			}
+		}
+		if (text.endsWith("search") && text != "search") {
+			location.href = 'https://www.google.com/search?q=' + query;
 		}
 	});
   </script>
