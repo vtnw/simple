@@ -7,7 +7,7 @@
     <title>Test</title>
 </head>
 <body style="width:100%;text-align:center;">
-    <input placeholder="Search 1" id="tbText" name="name" style="width:80%;border:none;text-align:center;font-size:large;"/>
+    <input placeholder="Search 2" id="tbText" name="name" style="width:80%;border:none;text-align:center;font-size:large;"/>
 </body>
 <script>
 	document.addEventListener("click", function (event) {
@@ -16,8 +16,7 @@
 	document.getElementById("tbText").addEventListener("input", function (event) {
 		let text =  event.target.value.toLowerCase();
 		if (text.endsWith("go") && text != "go") {
-			let query = text.replace("go", "");
-			alert(query);
+			let query = text.replace("go", "").trim();
 			if (query == "google") {
 				location.href = 'https://www.google.com';
 			} else if (query == "one india tamil") {
