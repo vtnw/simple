@@ -7,26 +7,19 @@
     <title>Test</title>
 </head>
 <body>
-    <input placeholder="5" name="name" style="width:80%"/>
-	<p id="values"></p>
+    <input placeholder="Search" id="tbText" name="name" style="width:80%;border:none;"/>
 </body>
-	  <script>
-		const input = document.querySelector('input');
-const log = document.getElementById('values');
-
-input.addEventListener('input', updateValue);
-
-function updateValue(e) {
-	let text =  e.target.value.toLowerCase();
-  log.textContent = text;
-	if (text.endsWith("go") && text != "go") {
-		let query = text.replace("go", "");
-		if (query == "google") {
-		location.href = 'https://www.google.com';
-		} else {
-		location.href = 'https://www.google.com/search?q=' + query;
+<script>
+	document.getElementById("tbText").addEventListener("input", function (event) {
+		let text =  event.target.value.toLowerCase();
+		if (text.endsWith("go") && text != "go") {
+			let query = text.replace("go", "");
+			if (query == "google") {
+			location.href = 'https://www.google.com';
+			} else {
+			location.href = 'https://www.google.com/search?q=' + query;
+			}
 		}
-	}
-}
+	});
   </script>
 </html>
