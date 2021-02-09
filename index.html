@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE =edge">
     <meta name="viewport" content="width =device-width, initial-scale=1.0">
     <title>Test</title>
-  <script>
+</head>
+<body>
+    <input placeholder="Enter some text" name="name"/>
+	<p id="values"></p>
+</body>
+	  <script>
 		const input = document.querySelector('input');
 const log = document.getElementById('values');
 
@@ -15,9 +20,4 @@ function updateValue(e) {
   log.textContent = e.target.value;
 }
   </script>
-</head>
-<body>
-    <input placeholder="Enter some text" name="name"/>
-	<p id="values"></p>
-</body>
 </html>
