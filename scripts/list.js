@@ -380,8 +380,8 @@ function clear() {
 }
 
 function navigate(step) {
-    update();
     let index = filteredList.findIndex(item => item.id == editItem.id);
+    update();
     if (step == -1 && index > 0) {
         editItem = filteredList[index - 1];
         open(editItem);
