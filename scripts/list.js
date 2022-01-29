@@ -434,9 +434,7 @@ function restoreFromFile() {
         }
         
         save();
-        filterList();
-        bindList();
-        fileRestore.value = "";
+        location.reload();
     };
     fileReader.readAsText(fileRestore.files[0], "UTF-8");
 }
