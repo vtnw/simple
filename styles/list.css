@@ -67,6 +67,10 @@ input[type=text] {
     outline: none;
     padding: 0.5rem;
     border: 0.1rem solid #cccccc;
-    width: 90%;
+    width: 80%;
     font-size: 1rem;
+}
+
+.count {
+    width: 10%;
 }
