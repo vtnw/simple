@@ -405,8 +405,14 @@ function restoreFromFile() {
         var importedData = JSON.parse(event.target.result);
         list = [];
         for (i = 0; i < importedData.length; i++) {
-            importedData[i].id = i + 1;
-            list.push(importedData[i]);
+            // importedData[i].id = i + 1;
+            // list.push(importedData[i]);
+            let newItem = getNewItem();
+            newItem.id = i;
+            newItem.name = importedData[i].Name;
+            newItem.comment = importedData[i].Remark;
+            newItem.quantity = importedData[i].Quantity;
+            list.push(newItem);
         }
 
         save();
