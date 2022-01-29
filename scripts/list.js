@@ -163,8 +163,9 @@ function show(element, visibile) {
 }
 
 function bindDdls() {
+    ddlSort.options[ddlSort.options.length] = new Option("Created", "id");
     sortOptions.forEach(type => {
-        ddlSort.options[ddlSort.options.length] = new Option(type, type == "Created" ? "id" : type.toLowerCase());
+        ddlSort.options[ddlSort.options.length] = new Option(type, type);
     });
     ddlSort.value = filter.sort;
 
