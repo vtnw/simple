@@ -366,8 +366,8 @@ function removeItem() {
 }
 
 function clear() {
-    list = [];
-    filter = {};
+    list = null;
+    filter = null;
     save();
     saveFilter();
     filterList();
