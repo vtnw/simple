@@ -5,7 +5,7 @@ let filterKey = "filter";
 let filter = {};
 let yesNoOptions = ["Yes", "No"];
 let categories = ["Monthly", "Mid-Month", "Pongal", "Chathurthi", "Pooja", "Diwali", "Birthday", "Karthigai"];
-let types = ["Drink", "Grocery Flour", "Grocery Main", "Grocery Readymade", "Grocery Mix", "Grocery Masala", "Grocery Fry", "Grocery Spice", "Grocery Other", "Frozen", "Fancy", "Stationary", "Snack", "Home Need", "Cleaning", "Cosmetics"];
+let types = ["Drink", "Grocery Flour", "Grocery Main", "Grocery Readymade", "Grocery Mix", "Grocery Masala", "Grocery Fry", "Grocery Spice", "Grocery Other", "Frozen", "Fancy", "Stationary", "Snack", "Home Need", "Cleaning", "Cosmetics", "Other"];
 let frequencies = ["Frequent", "Regular", "Often", "Rare", "Never"];
 let sortOptions = ["Created", "Name", "Type", "Frequency", "Selected"];
 
