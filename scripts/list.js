@@ -368,7 +368,6 @@ function removeItem() {
     if (index >= 0) {
         list.splice(index, 1);
         save();
-        filterList();
     }
 }
 
@@ -380,8 +379,8 @@ function clear() {
 }
 
 function navigate(step) {
-    let index = filteredList.findIndex(item => item.id == editItem.id);
     update();
+    let index = filteredList.findIndex(item => item.id == editItem.id);
     if (step == -1 && index > 0) {
         editItem = filteredList[index - 1];
         open(editItem);
