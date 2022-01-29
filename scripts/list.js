@@ -332,9 +332,9 @@ function getNewItem() {
         name: "",
         comment: "",
         quantity: "",
-        type: "Grocery Main",
-        categories: ["Monthly"],
-        frequency: "Regular",
+        type: "None",
+        categories: ["None"],
+        frequency: "None",
         lastBought: false,
         selected: false
     };
@@ -508,9 +508,9 @@ function restore() {
     data = data ? data : {
         list: [],
         filter: getDefaultFilter(),
-        categories: [],
-        types: [],
-        frequencies: [],
+        categories: ["None"],
+        types: ["None"],
+        frequencies: ["None"],
         sortOptions: []
     };
     list = data.list;
