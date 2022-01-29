@@ -255,16 +255,16 @@ function bindList() {
 
         dvColumn = document.createElement("div");
         dvColumn.className = "name";
+        dvColumn.addEventListener("click", () => {
+            show(btnPrevious, true);
+            show(btnNext, true);
+            open(item);
+        });
 
         let spn = document.createElement("span");
         spn.setAttribute("itemId", item.id);
         spn.id = "tbName" + item.id;
         spn.innerText = item.name + " (" + item.comment + ") - " + item.quantity;
-        spn.addEventListener("click", () => {
-            show(btnPrevious, true);
-            show(btnNext, true);
-            open(item);
-        });
 
         dvColumn.appendChild(spn);
         dvRow.appendChild(dvColumn);
