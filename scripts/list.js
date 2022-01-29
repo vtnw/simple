@@ -369,6 +369,7 @@ function clear() {
     list = [];
     filter = {};
     save();
+    saveFilter();
     filterList();
     bindList();
 }
