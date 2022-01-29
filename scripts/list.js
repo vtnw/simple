@@ -368,6 +368,7 @@ function removeItem() {
     if (index >= 0) {
         list.splice(index, 1);
         save();
+        filterList();
     }
 }
 
