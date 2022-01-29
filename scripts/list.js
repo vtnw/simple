@@ -368,8 +368,7 @@ function clear() {
     list = null;
     filter = null;
     save();
-    filterList();
-    bindList();
+    location.reload();
 }
 
 function navigate(step) {
