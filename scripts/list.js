@@ -1,6 +1,6 @@
 let list = [];
 let filteredList = [];
-let key = "list";
+let storageKey = "list2.0";
 let filter = {
     lastBought: "All",
     selected: "All",
@@ -10,6 +10,9 @@ let filter = {
     name: ""
 };
 let yesNoOptions = ["Yes", "No"];
+let categories = ["Monthly", "Mid-Month", "Pongal", "Chathurthi", "Pooja", "Diwali", "Birthday", "Karthigai"];
+let types = ["Drink", "Grocery Flour", "Grocery Main", "Grocery Readymade", "Grocery Mix", "Grocery Masala", "Grocery Fry", "Grocery Spice", "Grocery Other", "Frozen", "Plastic", "Stationary", "Snack", "Home Need", "Cleaning", "Cosmetics"];
+let frequencies = ["Frequent", "Regular", "Often", "Rare", "Never"];
 
 let ddlSort = document.getElementById("ddlSort");
 let ddlTypesFilter = document.getElementById("ddlTypesFilter");
@@ -58,6 +61,10 @@ function initialize() {
     show(btnBackup, false);
     show(btnRestore, false);
     show(btnClear, false);
+    
+    types.sort();
+    categories.sort();
+    frequencies.sort();
 
     ddlSort.addEventListener("change", () => {
         sort(ddlSort.value);
@@ -366,15 +373,15 @@ function navigate(step) {
 }
 
 function getTypes() {
-    return ["Stationary", "Grocery", "Cosmetic", "Cleaning", "Snack"];
+    return types;
 }
 
 function getCategories() {
-    return ["Monthly", "Pongal", "Diwali", "Chathurthi", "Pooja", "Karthigai"];
+    return categories;
 }
 
 function getFrequencies() {
-    return ["Frequent", "Regular", "Often", "Rare", "Never"];
+    return frequencies;
 }
 
 function filterList() {
@@ -449,10 +456,10 @@ function getFormattedDate() {
 }
 
 function save() {
-    localStorage.setItem(key, JSON.stringify(list));
+    localStorage.setItem(storageKey, JSON.stringify(list));
 }
 
 function restore() {
-    var items = JSON.parse(localStorage.getItem(key));
+    var items = JSON.parse(localStorage.getItem(storageKey));
     list = items ? items : [];
 }
