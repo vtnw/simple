@@ -476,7 +476,11 @@ function getFormattedDate() {
 }
 
 function save() {
-    localStorage.setItem(storageKey, JSON.stringify(list));
+    if (!list) {
+        localStorage.removeItem(storageKey);
+    } else {
+        localStorage.setItem(storageKey, JSON.stringify(list));
+    }
 }
 
 function restore() {
@@ -485,7 +489,11 @@ function restore() {
 }
 
 function saveFilter() {
-    localStorage.setItem(filterKey, JSON.stringify(filter));
+    if (!filter) {
+        localStorage.removeItem(filterKey);
+    } else {
+        localStorage.setItem(filterKey, JSON.stringify(filter));
+    }
 }
 
 function restoreFilter() {
