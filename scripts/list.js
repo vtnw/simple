@@ -1,6 +1,7 @@
 let list = [];
 let filteredList = [];
 let storageKey = "list2.0";
+let filterKey = "filter";
 let filter = {
     lastBought: "All",
     selected: "All",
