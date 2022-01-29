@@ -1,13 +1,12 @@
 let list = [];
 let filteredList = [];
 let storageKey = "list2.0";
-let filterKey = "filter";
 let filter = {};
 let yesNoOptions = ["Yes", "No"];
-let categories = ["Monthly", "Mid-Month", "Pongal", "Chathurthi", "Pooja", "Diwali", "Birthday", "Karthigai"];
-let types = ["Drink", "Grocery Flour", "Grocery Main", "Grocery Readymade", "Grocery Mix", "Grocery Masala", "Grocery Fry", "Grocery Spice", "Grocery Other", "Frozen", "Fancy", "Stationary", "Snack", "Home Need", "Cleaning", "Cosmetics", "Other"];
-let frequencies = ["Frequent", "Regular", "Often", "Rare", "Never"];
-let sortOptions = ["Created", "Name", "Type", "Frequency", "Selected"];
+let categories = [];
+let types = [];
+let frequencies = [];
+let sortOptions = [];
 
 let ddlSort = document.getElementById("ddlSort");
 let ddlTypesFilter = document.getElementById("ddlTypesFilter");
@@ -49,7 +48,6 @@ window.addEventListener("load", (event) => {
 
 function initialize() {
     restore();
-    restoreFilter();
     filterList();
     bindList();
     bindDdls();
@@ -280,7 +278,7 @@ function sort(field) {
         return a[field].toString().localeCompare(b[field].toString());
     });
     filter.sort = field;
-    saveFilter();
+    save();
     bindList();
 }
 
@@ -370,7 +368,6 @@ function clear() {
     list = null;
     filter = null;
     save();
-    saveFilter();
     filterList();
     bindList();
 }
@@ -415,7 +412,7 @@ function filterList() {
 
 function setFilter(key, value) {
     filter[key] = value;
-    saveFilter();
+    save();
     filterList();
     bindList();
 }
@@ -423,13 +420,19 @@ function setFilter(key, value) {
 function restoreFromFile() {
     var fileReader = new FileReader();
     fileReader.onload = function (event) {
-        var importedData = JSON.parse(event.target.result);
+        var data = JSON.parse(event.target.result);
         list = [];
-        for (i = 0; i < importedData.length; i++) {
-            importedData[i].id = i + 1;
-            list.push(importedData[i]);
+        filter = data.filter;
+        categories = data.categories;
+        types = data.types;
+        frequencies = data.frequencies;
+        sortOptions = data.sortOptions;
+        
+        for (i = 0; i < data.list.length; i++) {
+            data.list[i].id = i + 1;
+            list.push(data.list[i]);
         }
-
+        
         save();
         filterList();
         bindList();
@@ -451,7 +454,15 @@ function exportToFile() {
 }
 
 function backupToFile() {
-    saveAsFile(JSON.stringify(list), "ListBackup_" + getFormattedDate());
+    let data = {
+            list: list,
+            filter: filter,
+            categories: categories,
+            types: types,
+            frequencies: frequencies,
+            sortOptions: sortOptions
+        };
+    saveAsFile(JSON.stringify(data), "ListBackup_" + getFormattedDate());
 }
 
 function saveAsFile(data, fileName) {
@@ -477,27 +488,35 @@ function getFormattedDate() {
 }
 
 function save() {
-    if (!list) {
+    if (!list && !filter) {
         localStorage.removeItem(storageKey);
     } else {
-        localStorage.setItem(storageKey, JSON.stringify(list));
+        let data = {
+            list: list,
+            filter: filter,
+            categories: categories,
+            types: types,
+            frequencies: frequencies,
+            sortOptions: sortOptions
+        };
+        localStorage.setItem(storageKey, JSON.stringify(data));
     }
 }
 
 function restore() {
-    var items = JSON.parse(localStorage.getItem(storageKey));
-    list = items ? items : [];
-}
-
-function saveFilter() {
-    if (!filter) {
-        localStorage.removeItem(filterKey);
-    } else {
-        localStorage.setItem(filterKey, JSON.stringify(filter));
-    }
-}
-
-function restoreFilter() {
-    var item = JSON.parse(localStorage.getItem(filterKey));
-    filter = item ? item : getDefaultFilter();
+    var data = JSON.parse(localStorage.getItem(storageKey));
+    data = data ? data : {
+        list: [],
+        filter: getDefaultFilter(),
+        categories: [],
+        types: [],
+        frequencies: [],
+        sortOptions: []
+    };
+    list = data.list;
+    filter = data.filter;
+    categories = data.categories;
+    types = data.types;
+    frequencies = data.frequencies;
+    sortOptions = data.sortOptions;
 }
