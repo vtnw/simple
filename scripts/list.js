@@ -52,6 +52,7 @@ function initialize() {
     bindList();
     bindDdls();
     tbSearch.value = filter.name;
+    
     show(dvDetail, false);
     show(fileRestore, false);
     show(btnBackup, false);
