@@ -1,0 +1,39 @@
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column, .checkbox {
+    flex: 1;
+}
+
+.button {
+    flex: 1;
+    text-align: center;
+}
+
+.name {
+    flex: 9;
+}
+
+.label {
+    flex: 3;
+}
+
+.field {
+    flex: 7;
+}
+
+select {
+    width: 90%;
+}
+
+div {
+    width: 100%;
+    margin: 0.2rem 0.2rem 0.5rem 0.2rem;
+}
+
+button {
+    border: none;
+    background: none;
+}
