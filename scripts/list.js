@@ -48,6 +48,12 @@ window.addEventListener("load", (event) => {
 
 function initialize() {
     restore();
+    
+    types.sort((a, b) => a.localeCompare(b));
+    categories.sort((a, b) => a.localeCompare(b));
+    frequencies.sort((a, b) => a.localeCompare(b));
+    sortOptions.sort((a, b) => a.localeCompare(b));
+    
     filterList();
     bindList();
     bindDdls();
@@ -58,10 +64,6 @@ function initialize() {
     show(btnBackup, false);
     show(btnRestore, false);
     show(btnClear, false);
-    
-    types.sort();
-    categories.sort();
-    frequencies.sort();
 
     ddlSort.addEventListener("change", () => {
         sort(ddlSort.value);
