@@ -2,15 +2,7 @@ let list = [];
 let filteredList = [];
 let storageKey = "list2.0";
 let filterKey = "filter";
-let filter = {
-    lastBought: "All",
-    selected: "All",
-    frequency: "All",
-    type: "All",
-    category: "All",
-    name: "",
-    sort: "created"
-};
+let filter = {};
 let yesNoOptions = ["Yes", "No"];
 let categories = ["Monthly", "Mid-Month", "Pongal", "Chathurthi", "Pooja", "Diwali", "Birthday", "Karthigai"];
 let types = ["Drink", "Grocery Flour", "Grocery Main", "Grocery Readymade", "Grocery Mix", "Grocery Masala", "Grocery Fry", "Grocery Spice", "Grocery Other", "Frozen", "Plastic", "Stationary", "Snack", "Home Need", "Cleaning", "Cosmetics"];
@@ -346,6 +338,18 @@ function getNewItem() {
     };
 }
 
+function getDefaultFilter() {
+    return {
+        lastBought: "All",
+        selected: "All",
+        frequency: "All",
+        type: "All",
+        category: "All",
+        name: "",
+        sort: "created"
+    };
+}
+
 function addItem(item) {
     let ids = list.map(listItem => listItem.id);
     item.id = (ids.length > 0 ? Math.max(...ids) : 0) + 1;
@@ -363,6 +367,7 @@ function removeItem() {
 
 function clear() {
     list = [];
+    filter = {};
     save();
     filterList();
     bindList();
@@ -484,5 +489,5 @@ function saveFilter() {
 
 function restoreFilter() {
     var item = JSON.parse(localStorage.getItem(filterKey));
-    filter = item ? item : filter;
+    filter = item ? item : getDefaultFilter();
 }
