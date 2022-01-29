@@ -325,7 +325,7 @@ function getNewItem() {
         name: "",
         comment: "",
         quantity: "",
-        type: "Grocery",
+        type: "Grocery Other",
         categories: ["Monthly"],
         frequency: "Regular",
         lastBought: false,
