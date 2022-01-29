@@ -269,7 +269,9 @@ function bindList() {
         let spn = document.createElement("span");
         spn.setAttribute("itemId", item.id);
         spn.id = "tbName" + item.id;
-        spn.innerText = item.name + " (" + item.comment + ") - " + item.quantity;
+        let comment = item.comment ? " (" + item.comment + ")" : "";
+        let quantity = item.quantity ? " - " + item.quantity : "";
+        spn.innerText = item.name + comment + quantity;
 
         dvColumn.appendChild(spn);
         dvRow.appendChild(dvColumn);
