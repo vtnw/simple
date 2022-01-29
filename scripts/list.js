@@ -44,6 +44,7 @@ let fileRestore = document.getElementById("fileRestore");
 let btnClear = document.getElementById("btnClear");
 let btnMore = document.getElementById("btnMore");
 let imgMore = document.getElementById("imgMore");
+let spnCount = document.getElementById("spnCount");
 
 let editItem = {};
 
@@ -229,6 +230,7 @@ function bindCategories(categories) {
 }
 
 function bindList() {
+    spnCount.innerText = filteredList.length;
     dvItems.innerText = "";
     filteredList.forEach(item => {
         let dvRow = document.createElement("div");
@@ -325,7 +327,7 @@ function getNewItem() {
         name: "",
         comment: "",
         quantity: "",
-        type: "Grocery Other",
+        type: "Grocery Main",
         categories: ["Monthly"],
         frequency: "Regular",
         lastBought: false,
