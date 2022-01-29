@@ -230,7 +230,7 @@ function bindCategories(categories) {
 }
 
 function bindList() {
-    spnCount.innerText = filteredList.length;
+    spnCount.innerText = "(" + filteredList.length + ")";
     dvItems.innerText = "";
     filteredList.forEach(item => {
         let dvRow = document.createElement("div");
