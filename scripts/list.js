@@ -7,6 +7,7 @@ let yesNoOptions = ["Yes", "No"];
 let categories = ["Monthly", "Mid-Month", "Pongal", "Chathurthi", "Pooja", "Diwali", "Birthday", "Karthigai"];
 let types = ["Drink", "Grocery Flour", "Grocery Main", "Grocery Readymade", "Grocery Mix", "Grocery Masala", "Grocery Fry", "Grocery Spice", "Grocery Other", "Frozen", "Plastic", "Stationary", "Snack", "Home Need", "Cleaning", "Cosmetics"];
 let frequencies = ["Frequent", "Regular", "Often", "Rare", "Never"];
+let sortOptions = ["Created", "Name", "Type", "Frequency", "Selected"];
 
 let ddlSort = document.getElementById("ddlSort");
 let ddlTypesFilter = document.getElementById("ddlTypesFilter");
@@ -164,7 +165,7 @@ function show(element, visibile) {
 }
 
 function bindDdls() {
-    ["Created", "Name", "Type", "Frequency", "Selected"].forEach(type => {
+    sortOptions.forEach(type => {
         ddlSort.options[ddlSort.options.length] = new Option(type, type == "Created" ? "id" : type.toLowerCase());
     });
     ddlSort.value = filter.sort;
@@ -346,7 +347,7 @@ function getDefaultFilter() {
         type: "All",
         category: "All",
         name: "",
-        sort: "created"
+        sort: "id"
     };
 }
 
