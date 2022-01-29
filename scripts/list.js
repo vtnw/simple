@@ -290,7 +290,7 @@ function update() {
         }
     });
 
-    if (editItem.id == -1) {
+    if (editItem.id == 0) {
         addItem(editItem);
     }
 
@@ -314,7 +314,7 @@ function open(item) {
 
 function getNewItem() {
     return {
-        id: -1,
+        id: 0,
         name: "",
         comment: "",
         quantity: "",
