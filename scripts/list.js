@@ -189,6 +189,7 @@ function bindDdls() {
     getTypes().forEach(type => {
         ddlTypesFilter.options[ddlTypesFilter.options.length] = new Option(type, type);
     });
+    ddlTypesFilter.value = filter.type;
 
     ddlCategoriesFilter.options[ddlCategoriesFilter.options.length] = new Option("All", "All");
     getCategories().forEach(type => {
