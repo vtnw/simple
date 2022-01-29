@@ -74,3 +74,7 @@ input[type=text] {
 .count {
     width: 20%;
 }
+
+.column div {
+    font-size: 1rem;
+}
