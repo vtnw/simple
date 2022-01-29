@@ -35,6 +35,7 @@ let dvCategories = document.getElementById("dvCategories");
 let tbId = document.getElementById("tbId");
 let tbName = document.getElementById("tbName");
 let tbComment = document.getElementById("tbComment");
+let tbSearch = document.getElementById("tbSearch");
 let tbQuantity = document.getElementById("tbQuantity");
 let fileRestore = document.getElementById("fileRestore");
 let btnClear = document.getElementById("btnClear");
@@ -90,7 +91,22 @@ function initialize() {
     });
 
     btnReset.addEventListener("click", () => {
-        update();
+        list.forEach(item => {
+            item.lastBought = item.selected;
+            item.selected = false;
+        });
+
+        save();
+        filterList();
+        bindList();
+    });
+
+    tbSearch.addEventListener("keyup", () => {
+        setFilter("name", tbSearch.value);
+    });
+
+    tbSearch.addEventListener("search", () => {
+        setFilter("name", tbSearch.value);
     });
 
     btnClear.addEventListener("click", () => {
