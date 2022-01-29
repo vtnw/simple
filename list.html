@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html manifest="list.appcache">
+
+<head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible"
+            content="IE =edge">
+      <meta name="viewport"
+            content="width =device-width, initial-scale=1.0">
+      <link rel="manifest"
+            href="manifest.json">
+      <link rel="stylesheet"
+            href="styles/list.css">
+      <link rel="icon"
+            type="image/png"
+            href="images/icon.png" />
+      <title>List 2.0</title>
+</head>
+
+<body>
+      <div id="dvList">
+            <div class="container">
+                  <div class="row">
+                        <div class="button">
+                              <button id="btnMore"><img id="imgMore"
+                                         src="images/more.png"></button>
+                        </div>
+                        <div class="button">
+                              <button id="btnReset"><img src="images/reset.png"></button>
+                              <button id="btnBackup"><img src="images/backup.png"></button>
+                        </div>
+                        <div class="button">
+                              <button id="btnExport"><img src="images/export.png"></button>
+                              <button id="btnRestore"><img src="images/restore.png"></button>
+                              <input type="file"
+                                     id="fileRestore" />
+                        </div>
+                        <div class="button">
+                              <button id="btnAdd"><img src="images/add.png"></button>
+                              <button id="btnClear"><img src="images/clear.png"></button>
+                        </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                        <div class="column">
+                              Sort By
+                        </div>
+                        <div class="column">
+                              <select id="ddlSort"></select>
+                        </div>
+                        <div class="column">
+                              Selected
+                        </div>
+                        <div class="column">
+                              <select id="ddlSelectedFilter"></select>
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="column">
+                              Category
+                        </div>
+                        <div class="column">
+                              <select id="ddlCategoriesFilter"></select>
+                        </div>
+                        <div class="column">
+                              Type
+                        </div>
+                        <div class="column">
+                              <select id="ddlTypesFilter"></select>
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="column">
+                              Bought Recently
+                        </div>
+                        <div class="column">
+                              <select id="ddlLastBoughtFilter"></select>
+                        </div>
+                        <div class="column">
+                              Frequency
+                        </div>
+                        <div class="column">
+                              <select id="ddlFrequenciesFilter"></select>
+                        </div>
+                  </div>
+            </div>
+            <hr>
+            <div id="dvItems">
+
+            </div>
+      </div>
+      <div id="dvDetail">
+            <div class="container">
+                  <div class="row">
+                        <div class="button">
+                              <button id="btnPrevious"><img src="images/previous.png"></button>
+                        </div>
+                        <div class="button">
+                              <button id="btnHome"><img src="images/home.png"></button>
+                        </div>
+                        <div class="button">
+                              <button id="btnNext"><img src="images/next.png"></button>
+                        </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                        <div class="label">
+                              Id
+                        </div>
+                        <div class="field">
+                              <input type="text"
+                                     id="tbId"
+                                     placeholder="Id" />
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="label">
+                              Name
+                        </div>
+                        <div class="field">
+                              <input type="text"
+                                     id="tbName"
+                                     placeholder="Name" />
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="label">
+                              Comment
+                        </div>
+                        <div class="field">
+                              <input type="text"
+                                     id="tbComment"
+                                     placeholder="Comment" />
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="label">
+                              Quantity
+                        </div>
+                        <div class="field">
+                              <input type="text"
+                                     id="tbQuantity"
+                                     placeholder="Quantity" />
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="label">
+                              Type
+                        </div>
+                        <div class="field">
+                              <select id="ddlTypes"></select>
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="label">
+                              Category
+                        </div>
+                        <div class="field">
+                              <div id="dvCategories"></div>
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="label">
+                              Frequency
+                        </div>
+                        <div class="field">
+                              <select id="ddlFrequencies"></select>
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="label">
+                              Selected
+                        </div>
+                        <div class="field">
+                              <input id="cbSelected"
+                                     type="checkbox" />
+                        </div>
+                  </div>
+            </div>
+      </div>
+      <script src="scripts/list.js"
+              async></script>
+</body>
+
+</html>
