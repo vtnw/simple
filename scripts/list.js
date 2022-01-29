@@ -7,7 +7,8 @@ let filter = {
     frequency: "All",
     type: "All",
     category: "All",
-    name: ""
+    name: "",
+    sort: "created"
 };
 let yesNoOptions = ["Yes", "No"];
 let categories = ["Monthly", "Mid-Month", "Pongal", "Chathurthi", "Pooja", "Diwali", "Birthday", "Karthigai"];
@@ -54,6 +55,7 @@ window.addEventListener("load", (event) => {
 
 function initialize() {
     restore();
+    restoreFilter();
     filterList();
     bindList();
     bindDdls();
@@ -172,6 +174,7 @@ function bindDdls() {
     ["Created", "Name", "Type", "Frequency", "Selected"].forEach(type => {
         ddlSort.options[ddlSort.options.length] = new Option(type, type == "Created" ? "id" : type.toLowerCase());
     });
+    ddlSort.value = filter.sort;
 
     getTypes().forEach(type => {
         ddlTypes.options[ddlTypes.options.length] = new Option(type, type);
@@ -190,21 +193,25 @@ function bindDdls() {
     getCategories().forEach(type => {
         ddlCategoriesFilter.options[ddlCategoriesFilter.options.length] = new Option(type, type);
     });
+    ddlCategoriesFilter.value = filter.category;
 
     ddlFrequenciesFilter.options[ddlFrequenciesFilter.options.length] = new Option("All", "All");
     getFrequencies().forEach(type => {
         ddlFrequenciesFilter.options[ddlFrequenciesFilter.options.length] = new Option(type, type);
     });
+    ddlFrequenciesFilter.value = filter.frequency;
 
     ddlSelectedFilter.options[ddlSelectedFilter.options.length] = new Option("All", "All");
     yesNoOptions.forEach(type => {
         ddlSelectedFilter.options[ddlSelectedFilter.options.length] = new Option(type, type);
     });
+    ddlSelectedFilter.value = filter.selected;
 
     ddlLastBoughtFilter.options[ddlLastBoughtFilter.options.length] = new Option("All", "All");
     yesNoOptions.forEach(type => {
         ddlLastBoughtFilter.options[ddlLastBoughtFilter.options.length] = new Option(type, type);
     });
+    ddlLastBoughtFilter.value = filter.lastBought;
 
     bindCategories([]);
 }
@@ -277,6 +284,8 @@ function sort(field) {
     filteredList.sort((a, b) => {
         return a[field].toString().localeCompare(b[field].toString());
     });
+    filter.sort = field;
+    saveFilter();
     bindList();
 }
 
@@ -397,6 +406,7 @@ function filterList() {
 
 function setFilter(key, value) {
     filter[key] = value;
+    saveFilter();
     filterList();
     bindList();
 }
@@ -470,4 +480,13 @@ function save() {
 function restore() {
     var items = JSON.parse(localStorage.getItem(storageKey));
     list = items ? items : [];
+}
+
+function saveFilter() {
+    localStorage.setItem(filterKey, JSON.stringify(filter));
+}
+
+function restoreFilter() {
+    var item = JSON.parse(localStorage.getItem(filterKey));
+    filter = item ? item : filter;
 }
