@@ -406,7 +406,7 @@ function filterList() {
         (filter.category == "All" || item.categories.includes(filter.category)) &&
         (filter.name == "" || item.name.toLowerCase().indexOf(filter.name.toLowerCase()) >= 0));
     filteredList.sort((a, b) => {
-        return a.sort.toString().localeCompare(b.sort.toString());
+        return a[filter.sort].toString().localeCompare(b[filter.sort].toString());
     });
 }
 
