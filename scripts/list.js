@@ -66,7 +66,7 @@ function initialize() {
     show(btnClear, false);
 
     ddlSort.addEventListener("change", () => {
-        sort(ddlSort.value);
+        setFilter("sort", ddlSort.value);
     });
     ddlTypesFilter.addEventListener("change", () => {
         setFilter("type", ddlTypesFilter.value);
@@ -280,15 +280,6 @@ function bindList() {
     });
 }
 
-function sort(field) {
-    filteredList.sort((a, b) => {
-        return a[field].toString().localeCompare(b[field].toString());
-    });
-    filter.sort = field;
-    save();
-    bindList();
-}
-
 function update() {
     if (tbName.value == "") {
         removeItem();
@@ -414,6 +405,9 @@ function filterList() {
         (filter.type == "All" || item.type == filter.type) &&
         (filter.category == "All" || item.categories.includes(filter.category)) &&
         (filter.name == "" || item.name.toLowerCase().indexOf(filter.name.toLowerCase()) >= 0));
+    filteredList.sort((a, b) => {
+        return a.sort.toString().localeCompare(b.sort.toString());
+    });
 }
 
 function setFilter(key, value) {
