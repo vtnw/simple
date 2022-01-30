@@ -441,7 +441,7 @@ function restoreFromFile() {
 
 function exportToFile() {
     let data = "";
-    list.forEach(item => {
+    filteredList.forEach(item => {
         let entry = item.name;
         entry += item.comment ? " (" + item.comment + ")" : "";
         entry += item.quantity ? " - " + item.quantity : "";
