@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE =edge">
     <meta name="viewport" content="width =device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Read</title>
 </head>
 <body>
 	<input type="file" id="fileRestore" style="display:none;"/>
@@ -27,7 +27,7 @@
 		}
 
 		if (document.getElementById("dvText").innerText.length > 0) {
-			window.scrollTo(0, window.scrollY + 100);
+			window.scrollBy(0, window.innerHeight * 0.9);
 			save();
 		} else {
 			document.getElementById("fileRestore").click();
