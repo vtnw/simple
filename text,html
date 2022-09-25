@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE =edge">
+    <meta name="viewport" content="width =device-width, initial-scale=1.0">
+    <title>Text</title>
+</head>
+<body>
+	<input type="file" id="fileRestore" style="display:none;"/>
+	<div id="dvText"></div>
+</body>
+<script>
+	let data = "";
+	let scroll = 0;
+	document.addEventListener("click", () => {
+		if (scroll && window.scrollY < 100) {
+			window.scrollTo(0, scroll);
+			return;
+		}
+
+		if (document.getElementById("dvText").innerText.length > 0) {
+			window.scrollBy(0, window.innerHeight * 0.9);
+			scroll = window.scrollY;
+		} else {
+			document.getElementById("fileRestore").click();
+		}
+	});
+	document.getElementById("fileRestore").addEventListener("change", () => {
+        	var fileReader = new FileReader();
+		fileReader.onload = function (event) {
+	        	document.getElementById("dvText").innerText = event.target.result;
+	 	};
+    		fileReader.readAsText(fileRestore.files[0], "UTF-8");
+	});
+  </script>
+</html>
