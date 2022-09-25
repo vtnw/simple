@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE =edge">
+    <meta name="viewport" content="width =device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+	<input type="file" id="fileRestore" style="display:none;"/>
+	<div id="dvText"></div>
+</body>
+<script>
+	let storageKey = "read";
+	window.addEventListener("load", () => {
+		let data = JSON.parse(localStorage.getItem(storageKey));
+		if (data) {
+			document.getElementById("dvText").innerText = data.text;
+			window.scrollTo(0, data.scroll);
+		}
+	});
+	document.addEventListener("click", () => {
+		let data = JSON.parse(localStorage.getItem(storageKey));
+		if (data && window.scrollY < 100) {
+			window.scrollTo(0, data.scroll);
+			return;
+		}
+
+		if (document.getElementById("dvText").innerText.length > 0) {
+			window.scrollTo(0, window.scrollY + 100);
+			save();
+		} else {
+			document.getElementById("fileRestore").click();
+		}
+	});
+	document.getElementById("fileRestore").addEventListener("change", () => {
+        	var fileReader = new FileReader();
+		fileReader.onload = function (event) {
+	        	document.getElementById("dvText").innerText = event.target.result;
+	        	save();
+
+	 	};
+    		fileReader.readAsText(fileRestore.files[0], "UTF-8");
+	});
+	function save() {
+		localStorage.setItem(storageKey, JSON.stringify({ text: document.getElementById("dvText").innerText, scroll: window.scrollY }));
+	}
+  </script>
+</html>
